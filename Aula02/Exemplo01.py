@@ -1,6 +1,5 @@
 # Essa parte do código é um comentário
-
-print("Olá mundo!")
+print("Olá mundo!") 
 
 # Estou declarando uma variável e atribuindo um valor a ela
 nome = "Alencar Junior"
@@ -24,7 +23,7 @@ multiplicacao = valor1 * valor2
 divisao = valor1 / valor2
 resto = valor1 % valor2
 potencia = valor1 ** valor2
-
+ 
 print("Soma:", soma)
 print("Subtração:", subtracao)
 print("Multiplicação:", multiplicacao)
