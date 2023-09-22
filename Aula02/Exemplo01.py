@@ -36,3 +36,5 @@ print("Potência:", potencia)
 PI = 3.14
 
 print(PI)
+
+# https://github.com/alencarburitijr/efg_python
