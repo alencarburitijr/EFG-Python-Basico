@@ -35,7 +35,6 @@ valorHora = float(input("Digite o valor da hora: "))
 horasTrabalhadas = float(input("Digite a quantidade de horas trabalhadas: "))
 
 salarioBruto = valorHora * horasTrabalhadas
-
 if salarioBruto > 900 and salarioBruto <= 1500:
     percIR = 5
 elif salarioBruto <= 2500:
