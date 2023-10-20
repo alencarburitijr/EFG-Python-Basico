@@ -42,10 +42,19 @@ alunos_utilizaram_sistema = 0
 qtd_acertos = 0
 qtd_erros = 0
 
+lGabarito = int(input("Deseja alterar o gabarito? 1 - Sim, 2 - Não "))
+if lGabarito == 1:
+    gabarito = []
+    numero_questoes = int(input("Digite o número de questões: "))
+    aux = 1
+    for i in range(numero_questoes):
+        resp = input("Digite a questão " +  str(aux) + " do gabarito: ")
+        aux += 1
+        gabarito.append(resp)
+
 opcao = 1
 while opcao != 0:
     print("1 - Cadastrar respostas")
-    print("2 - Cadastrar gabarito")
     print("3 - Listar alunos")
     print("4 - Listar médias")
     print("5 - Listar maiores acertos")
@@ -58,16 +67,12 @@ while opcao != 0:
     if opcao == 1:
         alunos.append(input("Digite o nome do aluno: "))
 
-        # Verificar qual a posição da resposta
-        # Verificar qual a posição da resposta no gabarito
-        # Verificar se a resposta é igual ao gabarito
-        # Se for igual, adicionar na lista de acertos
-        # Se não for igual, adicionar na lista de erros
-        alunos_utilizaram_sistema += 1 
         qtd_acertos = 0
         qtd_erros = 0
+        aux = 1
         for i in range(10):
-            resposta = input("Digite o resposta")
+            resposta = input("Digite o resposta " + str(aux) + ": ")
+            aux += 1
             print("Resposta: ", resposta)
             print("Gabarito: ", gabarito[i])
             if resposta == gabarito[i]:
@@ -76,30 +81,24 @@ while opcao != 0:
             else:
                 qtd_erros += 1
                 print("Errou")
-
+        nota = qtd_acertos 
+        print("Acertos: ", qtd_acertos)
+        print("Erros: ", qtd_erros)
+        print("Nota: ", nota)   
         acertos.append(qtd_acertos)
-        erros.append(qtd_erros)
-    
-    elif opcao == 2:
-        gabarito = []
-        numero_questoes = int(input("Digite o número de questões: "))
-        aux = 1
-        for i in range(numero_questoes):
-            resp = input("Digite a questão " +  str(aux) + " do gabarito: ")
-            aux += 1
-            gabarito.append(resp)
+        erros.append(qtd_erros)      
 
     elif opcao == 3:
         for aluno in alunos:
             print(aluno)
     elif opcao == 4:
-        print("A média das notas da turma é ", sum(acertos)/len(alunos_utilizaram_sistema))
+        print("A média das notas da turma é ", sum(acertos)/len(alunos))
     elif opcao == 5:
         print("O maior acerto foi ", max(acertos))
     elif opcao == 6:
         print("O menor acerto foi ",min(acertos))
     elif opcao == 7:
-        print("O sistema foi utilizado por ", alunos_utilizaram_sistema, " alunos")
+        print("O sistema foi utilizado por ", len(alunos), " alunos")
     elif opcao == 0:
         print("Saindo do sistema")
     else:
